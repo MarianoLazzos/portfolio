@@ -7,6 +7,7 @@ import { useTheme } from 'next-themes';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import ThemeSwitcher from './ThemeSwitcher';
 
 interface MobileMenuProps {
   className?: string
@@ -85,8 +86,6 @@ const MobileMenu: React.FC<MobileMenuProps> = (props) => {
 export interface NavbarProps { }
 
 const Navbar: React.FC<NavbarProps> = (props) => {
-  const { theme, setTheme } = useTheme()
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     const headerOffset = 100
@@ -142,10 +141,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
       </div>
 
       <div className='flex-2 flex justify-end'>
-        <Switch
-          checked={theme === 'light'}
-          onCheckedChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-        />
+        <ThemeSwitcher />
       </div>
     </div>
   )

@@ -23,6 +23,7 @@ interface ExperienceSectionProps {
 }
 
 const ExperienceSection: React.FC<ExperienceSectionProps> = (props) => {
+
   return (
     <div className={props?.className}>
       <div className='flex flex-1 mb-3 items-center justify-between'>
@@ -149,7 +150,7 @@ export default function Home() {
       {
         id: 3,
         type: 'local',
-        route: '/',
+        route: '/celo-dapp',
         path: '/assets/images/projects/celo-dapp.png',
         data: {
           title: 'Donate through crypto',
@@ -181,6 +182,7 @@ export default function Home() {
                   fill
                   style={{ objectFit: 'cover' }}
                   alt={item.data.title}
+                  sizes='"(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"'
                 />
                 <div
                   className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex transition-opacity duration-300 ease-out p-10 flex-col justify-between"

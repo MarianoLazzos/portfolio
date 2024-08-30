@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/theme/theme-provider'
 const inter = Inter({ subsets: ["latin"] })
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -12,7 +13,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           attribute='class'
           defaultTheme='dark'
           enableSystem
-          disableTransitionOnChange
         >
           {children}
         </ThemeProvider>
