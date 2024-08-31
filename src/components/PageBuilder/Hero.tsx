@@ -19,7 +19,7 @@ const Hero: React.FC<HeroProps> = (props) => {
         sizes='"(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"'
       />
     </div>
-    <h1 className='text-primary text-9xl md:text-[200px] leading-tight ml-6'>
+    <h1 className='text-primary text-7xl leading-snug sm:text-9xl sm:leading-snug ml-6 overflow-hidden'>
       {props.title}
     </h1>
     </>
