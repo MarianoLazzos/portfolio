@@ -4,6 +4,7 @@ import { Header } from '@/components/PageBuilder/Header'
 import ContentList from '@/components/PageBuilder/ContentList'
 import { InfoSection } from '@/components/PageBuilder/InfoSection'
 import EndSection from '@/components/PageBuilder/EndSection'
+import ContactFooter from '@/components/PageBuilder/ContactFooter'
 
 export default function Camcart() {
   return (
@@ -108,7 +109,9 @@ export default function Camcart() {
         image='/assets/images/celo-donate.png'
       /> 
 
-      <EndSection />     
+      <EndSection /> 
+
+      <ContactFooter />    
     </>
   )
 }

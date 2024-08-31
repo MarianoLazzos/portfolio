@@ -1,3 +1,4 @@
+import ContactFooter from '@/components/PageBuilder/ContactFooter'
 import ContentList from '@/components/PageBuilder/ContentList'
 import EndSection from '@/components/PageBuilder/EndSection'
 import { Header } from '@/components/PageBuilder/Header'
@@ -168,6 +169,8 @@ export default function Camcart() {
         />
         
         <EndSection />
+
+        <ContactFooter />
       </div>
     </>
   )

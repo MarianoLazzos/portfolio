@@ -2,6 +2,7 @@ import React from 'react'
 import { ImageCard } from '@/components/ImageCard';
 import EndSection from '@/components/PageBuilder/EndSection';
 import Hero from '@/components/PageBuilder/Hero';
+import ContactFooter from '@/components/PageBuilder/ContactFooter';
 
 export default function Learning() {
 
@@ -72,6 +73,8 @@ export default function Learning() {
         hero_url='/assets/images/projects/learning.jpg'
       />
       {renderCourses()}
+
+      <ContactFooter />
     </>
   )
 }

@@ -10,6 +10,7 @@ import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { ImageCard } from '@/components/ImageCard';
+import ContactFooter from '@/components/PageBuilder/ContactFooter';
 
 interface ExperienceSectionProps {
   visit: string,
@@ -342,7 +343,7 @@ export default function Home() {
         {/* Education-Section */}
         {renderEducation()}
         {/* Contact-Section */}
-        {renderContact()}
+        <ContactFooter />
       </div>
     </>
   )
