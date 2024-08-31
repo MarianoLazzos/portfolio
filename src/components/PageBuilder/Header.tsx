@@ -15,14 +15,14 @@ export const Header: React.FC<HeaderProps> = (props) => {
     {
       title: 'Project Date',
       content: <div>
-        <p className='text-xl font-extralight'>{props.date}</p>
+        <p className='text-sm sm:text-xl font-extralight'>{props.date}</p>
       </div>
     },
     {
       title: 'Contributors',
       content: <div className='space-y-2'>
         {props.contributors.map((contributor) => {
-          return <p key={contributor.name} className='text-xl font-extralight'>{contributor.name}</p>
+          return <p key={contributor.name} className='text-sm sm:text-xl font-extralight'>{contributor.name}</p>
         })}
       </div>
     },
@@ -30,7 +30,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
       title: 'My Contributions',
       content: <div className='space-y-2'>
         {props.contributions.map((contribution) => {
-          return <p key={contribution.name} className='text-xl font-extralight'>{contribution.name}</p>
+          return <p key={contribution.name} className='text-sm sm:text-xl font-extralight'>{contribution.name}</p>
         })}
       </div>
     }
@@ -40,15 +40,13 @@ export const Header: React.FC<HeaderProps> = (props) => {
     <section id='project-brief' className='flex flex-col md:grid md:grid-cols-2 m-10 gap-5'>
         <div className='border-t-2 border-primary pt-5'>
           <div className='flex flex-row justify-between'>
-            {/* <h2 className='text-primary text-4xl font-normal'>01</h2> */}
-            {/* <h2 className='text-primary text-4xl font-normal'>Project Brief</h2> */}
             <p className="text-3xl font-medium mb-4 flex-1">01 Project Brief</p>
           </div>
-          <div className='grid grid-cols-3 mt-5'>
+          <div className='grid grid-cols-3 mt-5 gap-1'>
             {columns.map(item => {
               return (
                 <div key={item.title} className=''>
-                  <h3 className='text-primary text-xl font-semibold mb-5'>{item.title}</h3>
+                  <h3 className='text-primary text-sm sm:text-xl font-semibold mb-5'>{item.title}</h3>
                   {item.content}
                 </div>
               )
