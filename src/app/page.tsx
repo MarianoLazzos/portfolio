@@ -63,7 +63,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = (props) => {
       {props?.badgeList?.length && (
         <div className='flex flex-1 flex-row mt-5 flex-wrap'>
           {props?.badgeList.map(badge => {
-            return <Badge key={badge} className='mr-2 mb-2 hover:scale-110'>{badge}</Badge>
+            return <Badge key={badge} className='mr-2 mb-2 hover:scale-110 cursor-default'>{badge}</Badge>
           })}
         </div>
       )}
