@@ -33,7 +33,7 @@ const ContactFooter: React.FC<ContactFooterProps> = (props) => {
   ]
 
   return (
-    <section id='contact' className='flex lg:p-10 mx-auto mt-28 justify-between'>
+    <section id='contact' className='flex lg:p-10 mx-auto mt-28 p-7 justify-between'>
       <div className='flex flex-col'>
         {leftActions.map((item, index) => {
           return (
@@ -49,7 +49,7 @@ const ContactFooter: React.FC<ContactFooterProps> = (props) => {
       </div>
 
       <div className='self-end'>
-        <p className='tracking-tight text-md'>
+        <p className='tracking-tight text-md hidden sm:block'>
           Mariano Lazzos 2024 © All rights reserved
         </p>
       </div>
