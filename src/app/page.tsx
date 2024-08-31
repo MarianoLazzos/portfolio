@@ -1,15 +1,15 @@
 'use client'
 
 import React from 'react';
-import { Linkedin, Github, Mail, MapPin } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Particles from '@/components/ui/magicui/particles';
 import { useTheme } from 'next-themes';
-import Image from 'next/image'
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
+import { ImageCard } from '@/components/ImageCard';
 
 interface ExperienceSectionProps {
   visit: string,
@@ -126,48 +126,39 @@ export default function Home() {
   const renderWork = () => {
     const data = [
       {
-        id: 1,
-        route: '/',
-        type: 'local',
-        path: '/assets/images/projects/portfolio.jpeg',
-        data: {
-          title: 'Portfolio',
-          subtitle: 'Design',
-          subtitle2: 'Personal project'
-        }
+        route: '/prepago',
+        image: '/assets/images/projects/prepago.png',
+        title: 'Prepago - MVP',
+        subtitle: 'Freelance',
+        subtitle2: 'Ascentio Technologies'
       },
       {
-        id: 2,
-        type: 'local',
         route: '/camcart',
-        path: '/assets/images/projects/camcart.png',
-        data: {
-          title: 'Supermarket buying tool',
-          subtitle: 'UTN-FRC',
-          subtitle2: 'Academic final project 2022'
-        }
+        image: '/assets/images/projects/camcart.png',
+        title: 'Supermarket buying tool',
+        subtitle: 'UTN-FRC',
+        subtitle2: 'Academic final project 2022'
       },
       {
-        id: 3,
-        type: 'local',
-        route: '/celo-dapp',
-        path: '/assets/images/projects/celo-dapp.png',
-        data: {
-          title: 'Donate through crypto',
-          subtitle: 'Celo Blockchain',
-          subtitle2: 'Personal project'
-        }
-      },
-      {
-        id: 4,
-        type: 'tp',
         route: '/',
-        path: '/assets/images/projects/learning.jpg',
-        data: {
-          title: 'Learning resume',
-          subtitle: 'Courses',
-          subtitle2: 'Taken courses'
-        }
+        image: '/assets/images/projects/portfolio.jpeg',
+        title: 'Portfolio',
+        subtitle: 'Design',
+        subtitle2: 'Personal project'
+      },
+      {
+        route: '/celo-dapp',
+        image: '/assets/images/projects/celo-dapp.png',
+        title: 'Donate through crypto',
+        subtitle: 'Celo Blockchain',
+        subtitle2: 'Personal project'
+      },
+      {
+        route: '/learning',
+        image: '/assets/images/projects/learning.jpg',
+        title: 'Learning resume',
+        subtitle: 'Courses',
+        subtitle2: 'Taken courses'
       }
     ]
 
@@ -175,32 +166,7 @@ export default function Home() {
       <section id="my-work">
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
           {data.map((item, index) => {
-            return (
-              <Link key={index} href={item.route} className='max-w-full inline-block h-[50vh] relative group transform transition-transform duration-300 ease-out hover:translate-y-[-5px]'>
-                <Image
-                  src={item.path}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  alt={item.data.title}
-                  sizes='"(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"'
-                />
-                <div
-                  className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex transition-opacity duration-300 ease-out p-10 flex-col justify-between"
-                >
-                  <h1 className="max-w-[70%] scroll-m-20 text-4xl font-light tracking-tight lg:text-4xl text-white">
-                    {item.data.title}
-                  </h1>
-                  <div className='flex flex-col'>
-                    <h3 className="scroll-m-20 text-2xl font-light tracking-tight text-white">
-                      {item.data.subtitle}
-                    </h3>
-                    <h3 className="scroll-m-20 text-2xl font-light tracking-tight opacity-70 text-white">
-                      {item.data.subtitle2}
-                    </h3>
-                  </div>
-                </div>
-              </Link>
-            );
+            return <ImageCard key={index} {...item} />
           })}
         </div>
       </section>
@@ -302,29 +268,62 @@ export default function Home() {
       body: 'Hello Mariano, I would like to get in touch with you regarding your portfolio.'
     }
 
-    const href = `mailto:${mailInfo.email}?subject=${encodeURIComponent(mailInfo.subject)}&body=${encodeURIComponent(mailInfo.body)}`
+    const leftActions = [
+      { 
+        href: 'https://www.linkedin.com/in/marianolazzos/',
+        name: 'Linkedin'
+      },
+      { 
+        href: 'https://github.com/MarianoLazzos',
+        name: 'Github'
+      },
+      { 
+        href: `mailto:${mailInfo.email}?subject=${encodeURIComponent(mailInfo.subject)}&body=${encodeURIComponent(mailInfo.body)}`,
+        name: 'Send Email'
+      },
+    ]
+
+    const rightActions = [
+      {
+        name: 'Resume',
+        href: 'https://drive.google.com/uc?export=download&id=1XpaYbXjBH0BLRIU9T2eITXkBap_TPu99'
+      }
+    ]
 
     return (
-      <section id='contact' className='border-t-2 lg:p-10 mx-auto flex flex-col relative mt-28'>
-        <div className='flex flex-row justify-center'>
-          <Link href='https://www.linkedin.com/in/marianolazzos/'>
-            <Linkedin
-              size={30}
-              className='m-5 hover:text-primary/70 cursor-pointer'
-            />
-          </Link>
-          <Link href='https://github.com/MarianoLazzos'>
-            <Github
-              size={30}
-              className='m-5 hover:text-primary/70 cursor-pointer'
-            />
-          </Link>
-          <a href={href}>
-            <Mail
-              size={30}
-              className='m-5 hover:text-primary/70 cursor-pointer'
-            />
-          </a>
+      <section id='contact' className='flex border-t-2 lg:p-10 mx-auto mt-28 justify-between'>
+        <div className='flex flex-col'>
+          {leftActions.map((item, index) => {
+            return (
+              <Link 
+                key={index}
+                href={item.href}
+                className='self-start  border-primary cursor-pointer tracking-tight text-md underline-offset-1 border-b'
+              >
+                {item.name}
+              </Link>
+            )
+          })}
+        </div>
+
+        <div className='self-end'>
+          <p className='tracking-tight text-md'>
+            Mariano Lazzos 2024 © All rights reserved
+          </p>
+        </div>
+
+        <div className='flex flex-col'>
+          {rightActions.map((item, index) => {
+            return (
+              <Link 
+                key={index}
+                href={item.href} 
+                className='self-end border-primary cursor-pointer tracking-tight text-md underline-offset-1 border-b'
+              >
+                {item.name}
+              </Link>
+            )
+          })}
         </div>
       </section>
     )
