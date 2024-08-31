@@ -58,7 +58,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
             </h2>
           </div>
           <div>
-            <p className='text-xl font-extralight leading-relaxed'>
+            <p className='text-md sm:text-lg font-extralight leading-relaxed'>
               {props.description}
             </p>
           </div>

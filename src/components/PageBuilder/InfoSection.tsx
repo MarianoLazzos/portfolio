@@ -22,7 +22,7 @@ export const InfoSection: React.FC<InfoSectionProps> = ({ fill = true, ...props 
             <p className='flex-1 font-medium text-3xl'>{props.titleIndex ?? ''}</p>
             <div className='flex-1'>
               <p className='font-medium text-4xl tracking-tight mb-4'>{props?.title ?? ''}</p>
-              <p className='text-xl font-extralight leading-relaxed'>{props?.description ?? ''}</p>
+              <p className='text-md sm:text-xl font-extralight leading-relaxed'>{props?.description ?? ''}</p>
             </div>
           </div>
           <div className='relative flex m-5'>
